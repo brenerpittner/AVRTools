@@ -1,0 +1,3 @@
+[submodule "avrdude"]
+	path = avrdude
+	url = https://github.com/avrdudes/avrdude
