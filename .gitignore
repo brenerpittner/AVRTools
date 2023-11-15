@@ -33,3 +33,6 @@
 *.pdb
 /.vs/AVRTools
 /AVRTools/x64
+*.hex
+!/x64/Release/avrdude.exe
+!/x64/Release/avrdude.conf
