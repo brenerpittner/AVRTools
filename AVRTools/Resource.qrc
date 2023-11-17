@@ -5,5 +5,6 @@
     </qresource>
     <qresource prefix="/social">
         <file alias="github">Resources/images/github.png</file>
+        <file alias="linkedin">Resources/images/linkedin.png</file>
     </qresource>
 </RCC>

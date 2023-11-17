@@ -52,7 +52,7 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
 
     pushButton_about = new QPushButton(this);
     pushButton_about->setObjectName(QString::fromUtf8("pushButton_2"));
-    pushButton_about->setGeometry(QRect(120, 100, 75, 25)); // posição x , posição y, comprimento em x, comprimento em y
+    pushButton_about->setGeometry(QRect(220, 120, 50, 25)); // posição x , posição y, comprimento em x, comprimento em y
     pushButton_about->setText("About");
     QObject::connect(pushButton_about, SIGNAL(clicked()), this, SLOT(slot_ShowAbout()));
 

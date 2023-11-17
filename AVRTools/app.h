@@ -22,17 +22,9 @@
 
 #include "about.h"
 
-#define FULLNAME "AVRTools"
-#define STRING_SPACE  
-#define DEFAULT_VERSION 1.0
-#define ICON_APP ":/general/app_icon_default"
-#define ICON_UNDO ":/general/undo"
-
-
 class App : public QMainWindow
 {
     Q_OBJECT
-
 
 public:
     App(QWidget* parent = nullptr);
