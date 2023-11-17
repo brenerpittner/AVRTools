@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/general">
+        <file alias="app_icon_default">Resources/images/icon.png</file>
+        <file alias="undo">Resources/images/undo.png</file>
+    </qresource>
+</RCC>

@@ -7,6 +7,7 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
     ui.setupUi(this);
 
     this->resize(280, 150);
+    this->setFixedSize(size()); //fix main window
 
     pushButton_2 = new QPushButton(this);
     pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
@@ -26,13 +27,14 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
 
     pushButton_update_com_port = new QPushButton(this);
     pushButton_update_com_port->setObjectName(QString::fromUtf8("pushButton_2"));
-    pushButton_update_com_port->setGeometry(QRect(90, 50, 50, 25)); // posição x , posição y, comprimento em x, comprimento em y
-    pushButton_update_com_port->setText("reload");
+    pushButton_update_com_port->setGeometry(QRect(80, 50, 25, 25)); // posição x , posição y, comprimento em x, comprimento em y
+    pushButton_update_com_port->setIcon(QIcon(ICON_UNDO));
+    pushButton_update_com_port->setIconSize(QSize(20, 20));
     QObject::connect(pushButton_update_com_port, SIGNAL(clicked()), this, SLOT(get_com_port()));
 
     comboBox_board = new QComboBox(this);
     comboBox_board->setObjectName(QString::fromUtf8("comboBox_com_port"));
-    comboBox_board->setGeometry(QRect(150, 50, 100, 25));
+    comboBox_board->setGeometry(QRect(120, 50, 100, 25));
     QObject::connect(comboBox_board, SIGNAL(currentIndexChanged(int)), this, SLOT(setBoard(int)));
 
     pushButton_start = new QPushButton(this);

@@ -15,6 +15,14 @@
 #include <QtWidgets/QLabel>    
 
 #include <QSerialPortInfo>      // used to get portCOM descriptions
+#include <QIcon>
+
+#define FULLNAME "AVRTools"
+#define STRING_SPACE  
+#define DEFAULT_VERSION 1.0
+#define ICON_APP ":/general/app_icon_default"
+#define ICON_UNDO ":/general/undo"
+
 
 class App : public QMainWindow
 {
