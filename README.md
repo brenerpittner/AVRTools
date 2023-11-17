@@ -25,10 +25,7 @@ If your development board is not plugged in, plug it in and click the update but
 
 <div align="center">
     <p>
-    <a>
-    <img width="50%" src="AVRTools/Resources/images/user_manual/2.png" align="left"></a>
-    <a>
-    <img width="50%" src="AVRTools/Resources/images/user_manual/3.png" align="right"></a>
+    <a><img width="100%" src="AVRTools/Resources/images/user_manual/6.png"></a>
     </p>
 </div>
 
