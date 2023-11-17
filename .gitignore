@@ -38,3 +38,6 @@
 !/x64/Release/avrdude.conf
 !/x64/Release/*.dll
 *.aps
+/.vs
+/About/.vs/About
+/About/x64

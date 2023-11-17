@@ -32,13 +32,12 @@
   </ImportGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'" Label="QtSettings">
     <QtInstall>5.12.0</QtInstall>
-    <QtModules>
-    </QtModules>
+    <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
     <QtInstall>5.12.0</QtInstall>
-    <QtModules>core;widgets;serialport;</QtModules>
+    <QtModules>core;widgets;serialport;gui</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
   <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
@@ -84,9 +83,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <QtUic Include="about.ui" />
     <QtUic Include="MainWindow.ui" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="about.cpp" />
     <ClCompile Include="app.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -94,6 +95,8 @@
     <QtMoc Include="app.h" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="about.h" />
+    <ClInclude Include="definitions.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>

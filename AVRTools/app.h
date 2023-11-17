@@ -1,4 +1,4 @@
-#pragma once
+ #pragma once
 #include "ui_MainWindow.h"
 
 #include <QtWidgets/QMainWindow>
@@ -17,17 +17,14 @@
 #include <QSerialPortInfo>      // used to get portCOM descriptions
 #include <QIcon>
 
-#define FULLNAME "AVRTools"
-#define STRING_SPACE  
-#define DEFAULT_VERSION 1.0
-#define ICON_APP ":/general/app_icon_default"
-#define ICON_UNDO ":/general/undo"
+//#include "../About/about.h"
+#include <QWidget>
 
+#include "about.h"
 
 class App : public QMainWindow
 {
     Q_OBJECT
-
 
 public:
     App(QWidget* parent = nullptr);
@@ -43,6 +40,8 @@ public:
 private:
     Ui::MainWindow ui;
 
+    About about;
+
     QLabel* label_path;
     QLabel* label_result;
     QComboBox* comboBox_com_port;
@@ -51,6 +50,7 @@ private:
     QComboBox* comboBox_board;
 
     QPushButton* pushButton_start;
+    QPushButton* pushButton_about;
     QPushButton* pushButton_2;
     QPushButton* pushButton_update_com_port;
 
@@ -62,4 +62,5 @@ public slots:
     void setComPort(int);
     void setBoard(int);
     void get_com_port();
+    void slot_ShowAbout();
 };
