@@ -6,6 +6,8 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
 {
     ui.setupUi(this);
 
+    about.setWindowTitle(QString::fromStdString(FULLNAME) + STRING_SPACE + DEFAULT_VERSION);
+
     this->resize(280, 150);
     this->setFixedSize(size()); //fix main window
 
@@ -47,6 +49,12 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
     label_result->setObjectName(QString::fromUtf8("label_result"));
     label_result->setGeometry(QRect(20, 100, 500, 25)); //int left, int top, int width, int height
     //label_result->setText("...");
+
+    pushButton_about = new QPushButton(this);
+    pushButton_about->setObjectName(QString::fromUtf8("pushButton_2"));
+    pushButton_about->setGeometry(QRect(120, 100, 75, 25)); // posição x , posição y, comprimento em x, comprimento em y
+    pushButton_about->setText("About");
+    QObject::connect(pushButton_about, SIGNAL(clicked()), this, SLOT(slot_ShowAbout()));
 
     get_com_port();
     listBoard();
@@ -136,9 +144,14 @@ void App::listBoard() {
     comboBox_board->setModel(model_board);
 }
 
-
 void App::setBoard(int index)
 {
     board = partno.value(index);
     qDebug() << "board set to: " << board;
+}
+
+void App::slot_ShowAbout()
+{
+    qDebug() << "slot_ShowAbout";
+    about.show();
 }
