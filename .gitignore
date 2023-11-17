@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+*.pdb
+/.vs/AVRTools
+/AVRTools/x64
+*.hex
+!/x64/Release/avrdude.exe
+!/x64/Release/avrdude.conf
+!/x64/Release/*.dll
+*.aps
+/.vs
+/About/.vs/About
+/About/x64
