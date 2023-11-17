@@ -1,11 +1,13 @@
 #include "app.h"
 
+
 App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
     : QMainWindow(parent)
 {
     ui.setupUi(this);
 
-    this->resize(250, 150);
+    this->resize(280, 150);
+    this->setFixedSize(size()); //fix main window
 
     pushButton_2 = new QPushButton(this);
     pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
@@ -25,9 +27,15 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
 
     pushButton_update_com_port = new QPushButton(this);
     pushButton_update_com_port->setObjectName(QString::fromUtf8("pushButton_2"));
-    pushButton_update_com_port->setGeometry(QRect(90, 50, 50, 25)); // posição x , posição y, comprimento em x, comprimento em y
-    pushButton_update_com_port->setText("reload");
+    pushButton_update_com_port->setGeometry(QRect(80, 50, 25, 25)); // posição x , posição y, comprimento em x, comprimento em y
+    pushButton_update_com_port->setIcon(QIcon(ICON_UNDO));
+    pushButton_update_com_port->setIconSize(QSize(20, 20));
     QObject::connect(pushButton_update_com_port, SIGNAL(clicked()), this, SLOT(get_com_port()));
+
+    comboBox_board = new QComboBox(this);
+    comboBox_board->setObjectName(QString::fromUtf8("comboBox_com_port"));
+    comboBox_board->setGeometry(QRect(120, 50, 100, 25));
+    QObject::connect(comboBox_board, SIGNAL(currentIndexChanged(int)), this, SLOT(setBoard(int)));
 
     pushButton_start = new QPushButton(this);
     pushButton_start->setObjectName(QString::fromUtf8("pushButton"));
@@ -41,6 +49,7 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
     //label_result->setText("...");
 
     get_com_port();
+    listBoard();
     statusBar()->showMessage(tr("Bem-vindo !"), 2000);
 };
 
@@ -79,7 +88,7 @@ void App::command() {
         qDebug() << "A com_port não esta vazia";
     }
 
-    QString avrdudePath = QCoreApplication::applicationDirPath() + QString("/avrdude.exe -c arduino -p atmega328p -P %2 -b 115200 -U flash:w:\"%1\":a").arg(path_file, com_port);
+    QString avrdudePath = QCoreApplication::applicationDirPath() + QString("/avrdude.exe -c arduino -p %3 -P %2 -b 115200 -U flash:w:\"%1\":a").arg(path_file, com_port, board);
     qDebug() << avrdudePath;
 
     QProcess avrdudeProcess;
@@ -95,7 +104,6 @@ void App::command() {
         QString msg_fail = "Falha !";
         statusBar()->showMessage(msg_fail, 2000);
     }
-
 }
 
 void App::get_com_port() {
@@ -116,4 +124,21 @@ void App::setComPort(int index)
 {
     com_port = com_ports.value(index);
     qDebug() << "com_port set to: " << com_port;
+}
+
+void App::listBoard() {
+
+    // Adicionando itens ao modelo
+    foreach(const QString & text, boards) {
+        QStandardItem* item = new QStandardItem(text);
+        model_board->appendRow(item);
+    }
+    comboBox_board->setModel(model_board);
+}
+
+
+void App::setBoard(int index)
+{
+    board = partno.value(index);
+    qDebug() << "board set to: " << board;
 }
