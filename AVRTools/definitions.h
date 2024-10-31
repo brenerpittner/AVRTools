@@ -2,7 +2,7 @@
 
 //general
 #define FULLNAME "AVRTools"
-#define STRING_SPACE  
+#define STRING_SPACE " "
 #define DEFAULT_VERSION 1.0
 
 //icons

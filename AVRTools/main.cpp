@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
     //a.setApplicationVersion(DEFAULT_VERSION);
 
     App w;
-    w.setWindowTitle(QString::fromStdString(FULLNAME) + STRING_SPACE + DEFAULT_VERSION);
+    w.setWindowTitle(QString::fromStdString(FULLNAME) + QString::fromStdString(STRING_SPACE) + QString::number(DEFAULT_VERSION));
     w.show();
 
     return a.exec();

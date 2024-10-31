@@ -6,7 +6,7 @@ App::App(QWidget* parent) //* pega o valor do endereço & aponta para o endereço
 {
     ui.setupUi(this);
 
-    about.setWindowTitle(QString::fromStdString(FULLNAME) + STRING_SPACE + DEFAULT_VERSION);
+    about.setWindowTitle(QString::fromStdString(FULLNAME) + QString::fromStdString(STRING_SPACE) + QString::number(DEFAULT_VERSION));
 
     this->resize(280, 150);
     this->setFixedSize(size()); //fix main window
